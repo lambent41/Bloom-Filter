@@ -15,8 +15,8 @@ public abstract class AbstractBloomFilter implements BloomFilter {
     }
 
     public AbstractBloomFilter(double falsePosProbability, int expectedElements) {
-        int size = (int) (-1 * (expectedElements * Math.log(falsePosProbability) / (Math.log(2) * Math.log(2))));
-        int fnCount = (int) ((size / expectedElements) * Math.log(2));
+        int size = (-1 * (expectedElements * log2(falsePosProbability) / (log2(2) * log2(2))));
+        int fnCount = ((size / expectedElements) * log2(2));
         this.bitSet = new BitSet(size);
         this.expectedElements = expectedElements;
         this.falsePosProbability = falsePosProbability;
@@ -42,4 +42,8 @@ public abstract class AbstractBloomFilter implements BloomFilter {
     }
 
     abstract int[] getHashedIndexForBitSet(String data);
+
+    public static int log2(double f) {
+        return (int) Math.floor(Math.log(f) / Math.log(2.0));
+    }
 }
