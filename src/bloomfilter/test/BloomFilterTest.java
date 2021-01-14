@@ -63,8 +63,23 @@ public class BloomFilterTest {
     };
 
     public static void main(String[] args) {
+
         testWithSmallBitset();
         testWithOptimumSizeBitSet();
+    }
+
+    private static int caculate(){
+        int node_num = 0;
+        //calculate
+        return node_num;
+    }
+
+    private static void implement_insert(String filename, String unique_key){
+        BloomFilter bloomFilter = new BasicBloomFilter(0.01, randomWords.length);
+        String hash_input = filename + unique_key;
+        bloomFilter.addData(hash_input);
+        int node_num = caculate();
+
     }
 
 

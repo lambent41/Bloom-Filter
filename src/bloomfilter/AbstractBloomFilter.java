@@ -6,8 +6,8 @@ import java.util.BitSet;
 public abstract class AbstractBloomFilter implements BloomFilter {
 
     protected BitSet bitSet;
-    protected int expectedElements = -1;
-    protected double falsePosProbability = -1;
+    protected int expectedElements = -1;    //How many elements are going to be in the DB
+    protected double falsePosProbability = -1;  //How much false positives can we tolerate
     protected int optimumHashFunctions = -1;
 
     public AbstractBloomFilter(int size) {
