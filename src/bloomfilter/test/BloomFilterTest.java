@@ -2,6 +2,7 @@ package bloomfilter.test;
 
 import bloomfilter.BasicBloomFilter;
 import bloomfilter.BloomFilter;
+import db.MalleDB;
 
 import java.util.Arrays;
 import java.util.Random;
@@ -63,7 +64,7 @@ public class BloomFilterTest {
     };
 
     public static void main(String[] args) {
-
+        MalleDB malleDB = new MalleDB();
         testWithSmallBitset();
         testWithOptimumSizeBitSet();
     }
@@ -79,7 +80,9 @@ public class BloomFilterTest {
         String hash_input = filename + unique_key;
         bloomFilter.addData(hash_input);
         int node_num = caculate();
-
+        MalleDB malleDB = new MalleDB();
+        malleDB.init();
+        malleDB.create();
     }
 
 
